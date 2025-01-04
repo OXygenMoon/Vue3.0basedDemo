@@ -1,20 +1,19 @@
 <template>
   <div>
     <NavBar />
-    <button class="btn btn-primary">点击我</button>
-    <button class="btn btn-wide">Wide</button>
     <PageContent />
     <AppFooter />
   </div>
 </template>
 
+
 <script>
-import NavBar from './components/NavBar.vue';
-import PageContent from './components/PageContent.vue';
-import AppFooter from './components/AppFooter.vue';
+import NavBar from "./components/NavBar.vue";
+import PageContent from "./components/PageContent.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     NavBar,
     PageContent,
@@ -33,6 +32,6 @@ export default {
 }
 
 body {
-    margin: 0; /* 去除浏览器默认边距 */
+  margin: 0; /* 去除浏览器默认边距 */
 }
 </style>
