@@ -55,10 +55,10 @@
       <a class="btn">登录</a>
     </div>
 
-    <div style="margin-left:20px;">
+    <div style="margin-left: 20px">
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
-        <input @click="toggleTheme" type="checkbox" />
+        <input type="checkbox" @click="setDataTheme"/>
 
         <!-- sun icon -->
         <svg
@@ -87,12 +87,20 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
   name: "NavBar",
+  setup() {
+    const dataTheme = ref(localStorage.getItem('data-theme') || "cupcake");
+    function setDataTheme() {
+      dataTheme.value = dataTheme.value === "cupcake" ? "business" : "cupcake";
+      localStorage.setItem('data-theme', dataTheme.value);
+    }
+    return {dataTheme, setDataTheme}
+  },
+
 };
-
-
-
 </script>
 
 <style scoped>

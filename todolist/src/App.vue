@@ -11,6 +11,7 @@
 import NavBar from "./components/NavBar.vue";
 import PageContent from "./components/PageContent.vue";
 import AppFooter from "./components/AppFooter.vue";
+import { onMounted, watchEffect } from "vue";
 
 export default {
   name: "App",
@@ -19,6 +20,19 @@ export default {
     PageContent,
     AppFooter,
   },
+  setup() {
+    onMounted(() => {
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('data-theme') || "cupcake");
+      watchEffect(() => {
+        const theme = localStorage.getItem('data-theme');
+        if (theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      });
+    });
+
+    return {};
+  }
 };
 </script>
 
